@@ -1,0 +1,25 @@
+.box-app{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.box-verbs{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.verbs{  
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.icon-success{
+  height: 60px;
+  display: flex;
+  justify-content: center;
+}
+.word{
+  margin: 0px 0px 10px 0px;
+}
