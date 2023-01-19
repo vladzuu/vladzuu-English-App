@@ -11,7 +11,7 @@ const MainMenu = () => {
 
   return (
     <div className='nav-menu'>
-      <NavLink to='/1'>
+      <NavLink to='/listVerbs'>
         <StyledButton name='Список глаголов' />
       </NavLink>
 
@@ -20,7 +20,6 @@ const MainMenu = () => {
       </NavLink>
 
       <StyledButton name='Статистика' />
-
     </div >
   );
 };

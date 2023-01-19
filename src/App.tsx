@@ -4,14 +4,12 @@ import store, { persistor as persister } from './store/store';
 import './App.css';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import IrregularVerbs from './components/IrregularVerbs/IrregularVerbs';
-import AddIrrVerbs from './components/Admin/AddIrrVerbs';
-
-import Button from '@mui/material/Button';
+import IrregularVerbs from './components/IrregularVerbs/IrregularVerbsL5';
 import MainMenu from './components/main/MainMenu';
 import HeaderMain from './components/main/Header';
 import PageNoFound from './components/PageNoFound/PageNoFound';
 import Login from './components/Login/Login';
+import ListVerbs from './components/IrregularVerbs/ListsVerbs/ListVerbs';
 
 
 function App() {
@@ -21,13 +19,14 @@ function App() {
         <PersistGate loading={null} persistor={persister} >
           <div className="App" >
             <Routes>
-              <Route path='/' element={<HeaderMain />} />
+              <Route path='/*' element={<HeaderMain />} />
             </Routes>
             <main>
               <Routes>
                 <Route path='/IrregularVerbs' element={<IrregularVerbs />} />
                 <Route path='/' element={<MainMenu />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/listVerbs' element={<ListVerbs />} />
                 <Route path='*' element={<PageNoFound />} />
               </Routes>
             </main>

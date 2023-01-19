@@ -1,5 +1,5 @@
 import { all, fork } from 'redux-saga/effects';
-import { watcherAdmin } from './adminSaga';
+import { watcherIrregularVerbs } from './irregularVerbsSaga';
 
 
 
@@ -7,5 +7,5 @@ export function* rootSaga() {
   // yield all([
   //   watcherAdmin(),
   // ])
-  yield fork(watcherAdmin)
+  yield fork(watcherIrregularVerbs)
 }

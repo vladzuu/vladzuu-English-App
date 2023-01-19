@@ -18,24 +18,24 @@ const IrregularVerbs = () => {
   let [isCorrect, setIsCorrect] = useState<boolean | null>(null)
   let [infinitiveInput, setInfinitiveInput] = useState('')
   let [pastSimpleInput, setPastSimpleInput] = useState('')
-  let [participateInput, setParticipateInput] = useState('')
+  let [participleInput, setParticipleInput] = useState('')
   let [revInfinitive, setRevInfinitive] = useState(dataWorld[counter].infinitive)
   let [revPastSimple, setRevPastSimple] = useState(dataWorld[counter].pastSimple)
-  let [revParticipate, setRevParticipate] = useState(dataWorld[counter].participate)
+  let [revParticiple, setRevParticiple] = useState(dataWorld[counter].participle)
 
   useEffect(() => {
     setInfinitiveInput('')
     setPastSimpleInput('')
-    setParticipateInput('')
+    setParticipleInput('')
     shuffle(dataWorld[counter].infinitive, setRevInfinitive)
     shuffle(dataWorld[counter].pastSimple, setRevPastSimple)
-    shuffle(dataWorld[counter].participate, setRevParticipate)
+    shuffle(dataWorld[counter].participle, setRevParticiple)
     setIsCorrect(null)
   }, [counter])
 
   let check = () => {
-    let check = `Inf: ${infinitiveInput} past: ${pastSimpleInput} part: ${participateInput}`
-    let right = `Inf: ${dataWorld[counter].infinitive} past: ${dataWorld[counter].pastSimple} part: ${dataWorld[counter].participate}`
+    let check = `Inf: ${infinitiveInput} past: ${pastSimpleInput} part: ${participleInput}`
+    let right = `Inf: ${dataWorld[counter].infinitive} past: ${dataWorld[counter].pastSimple} part: ${dataWorld[counter].participle}`
     if (check === right) return setIsCorrect(true)
     return setIsCorrect(false)
   }
@@ -51,7 +51,7 @@ const IrregularVerbs = () => {
   let submit = () => {
     setRevInfinitive(dataWorld[counter].infinitive)
     setRevPastSimple(dataWorld[counter].pastSimple)
-    setRevParticipate(dataWorld[counter].participate)
+    setRevParticiple(dataWorld[counter].participle)
     check();
     setTimeout(() => {
       setCounter(counter + 1)
@@ -95,13 +95,13 @@ const IrregularVerbs = () => {
             onChange={(e) => setPastSimpleInput(e.target.value)} />
         </div>
         <div className='verbs'>
-          <span className='word'>{revParticipate}</span>
+          <span className='word'>{revParticiple}</span>
           <TextField
             id="outlined-basic"
-            label="Participate"
+            label="Participle"
             variant="outlined"
-            value={participateInput}
-            onChange={(e) => setParticipateInput(e.target.value)}
+            value={participleInput}
+            onChange={(e) => setParticipleInput(e.target.value)}
             onKeyDown={(e) => {
               if (counter === dataWorld.length - 1) return console.log('111111111')
               if (e.key === 'Enter') return submit()

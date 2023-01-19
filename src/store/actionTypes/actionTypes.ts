@@ -1,9 +1,10 @@
 export const ADD_VERB = 'irregularVerbs/addVerb'
+export const APPLY_VIEW_OPTION_VERBS = 'irregularVerbs/applySettingVerbList'
 
 export interface IFormAddVerb {
   infinitive: string
   pastSimple: string
-  participate: string
+  participle: string
   translate: string
 }
 

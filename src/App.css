@@ -1,4 +1,4 @@
-Обнуление
+/* Обнуление */
 *{
 	padding: 0;
 	margin: 0;
@@ -37,6 +37,8 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   background-color: #30cc6a54;
 }
@@ -76,9 +78,6 @@ padding-left: 15px;
 .ava-user{
   padding-right:20px ;
 }
-
-
-
 .nav-menu{
   display: flex;
   flex-direction: column;
@@ -86,16 +85,9 @@ padding-left: 15px;
   align-items: center;
   height: 90vh;
 }
-.abc{
-margin:10px
-}
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main{
+display: flex;
+justify-content: center;
+background-color: rgba(40, 150, 91, 0.515);
 }
