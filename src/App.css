@@ -90,4 +90,5 @@ main{
 display: flex;
 justify-content: center;
 background-color: rgba(40, 150, 91, 0.515);
+flex-grow: 1;
 }

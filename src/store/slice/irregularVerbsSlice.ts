@@ -8,6 +8,7 @@ export interface ITransl {
   participle: string
   translate: string
   setReproduce: number
+  lastAttemptDate: string
 }
 
 export interface IInitialState {
@@ -36,7 +37,8 @@ let initialState: IInitialState = {
       "pastSimple": "was (were)",
       "participle": "been",
       "translate": "быть",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 2,
@@ -44,7 +46,8 @@ let initialState: IInitialState = {
       "pastSimple": "bore",
       "participle": "born",
       "translate": "рожать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 3,
@@ -52,7 +55,8 @@ let initialState: IInitialState = {
       "pastSimple": "beat",
       "participle": "beaten",
       "translate": "бить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 4,
@@ -60,7 +64,8 @@ let initialState: IInitialState = {
       "pastSimple": "became",
       "participle": "become",
       "translate": "становиться",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 5,
@@ -68,7 +73,8 @@ let initialState: IInitialState = {
       "pastSimple": "began",
       "participle": "begun",
       "translate": "начинать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 6,
@@ -76,7 +82,8 @@ let initialState: IInitialState = {
       "pastSimple": "bound",
       "participle": "bound",
       "translate": "связывать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 7,
@@ -84,7 +91,8 @@ let initialState: IInitialState = {
       "pastSimple": "bit",
       "participle": "bitten",
       "translate": "кусаться",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 8,
@@ -92,7 +100,8 @@ let initialState: IInitialState = {
       "pastSimple": "blew",
       "participle": "blown",
       "translate": "дуть",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 9,
@@ -100,7 +109,8 @@ let initialState: IInitialState = {
       "pastSimple": "broke",
       "participle": "broken",
       "translate": "ломать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 10,
@@ -108,7 +118,8 @@ let initialState: IInitialState = {
       "pastSimple": "brought",
       "participle": "brought",
       "translate": "приносить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 11,
@@ -116,7 +127,8 @@ let initialState: IInitialState = {
       "pastSimple": "built",
       "participle": "built",
       "translate": "строить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 12,
@@ -124,7 +136,8 @@ let initialState: IInitialState = {
       "pastSimple": "bought",
       "participle": "bought",
       "translate": "покупать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 13,
@@ -132,7 +145,8 @@ let initialState: IInitialState = {
       "pastSimple": "caught{кат}",
       "participle": "caught",
       "translate": "ловить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 14,
@@ -140,7 +154,8 @@ let initialState: IInitialState = {
       "pastSimple": "chose",
       "participle": "chosen",
       "translate": "выбирать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 15,
@@ -148,7 +163,8 @@ let initialState: IInitialState = {
       "pastSimple": "came",
       "participle": "come",
       "translate": "приходить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 16,
@@ -156,7 +172,8 @@ let initialState: IInitialState = {
       "pastSimple": "cost",
       "participle": "cost",
       "translate": "стоить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 17,
@@ -164,7 +181,8 @@ let initialState: IInitialState = {
       "pastSimple": "cut",
       "participle": "cut",
       "translate": "резать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 18,
@@ -172,7 +190,8 @@ let initialState: IInitialState = {
       "pastSimple": "dealt",
       "participle": "dealt",
       "translate": "вести дела",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 19,
@@ -180,7 +199,8 @@ let initialState: IInitialState = {
       "pastSimple": "dug",
       "participle": "dug",
       "translate": "копать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 20,
@@ -188,7 +208,8 @@ let initialState: IInitialState = {
       "pastSimple": "did",
       "participle": "done",
       "translate": "делать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 21,
@@ -196,7 +217,8 @@ let initialState: IInitialState = {
       "pastSimple": "drew",
       "participle": "drawn",
       "translate": "рисовать, тянуть",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 22,
@@ -204,7 +226,8 @@ let initialState: IInitialState = {
       "pastSimple": "drank",
       "participle": "drunk",
       "translate": "пить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 23,
@@ -212,7 +235,8 @@ let initialState: IInitialState = {
       "pastSimple": "drove",
       "participle": "driven",
       "translate": "водить автомобиль",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 24,
@@ -220,7 +244,8 @@ let initialState: IInitialState = {
       "pastSimple": "ate",
       "participle": "eaten",
       "translate": "кушать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 25,
@@ -228,7 +253,8 @@ let initialState: IInitialState = {
       "pastSimple": "fell",
       "participle": "fallen",
       "translate": "падать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 26,
@@ -236,7 +262,8 @@ let initialState: IInitialState = {
       "pastSimple": "fed",
       "participle": "fed",
       "translate": "кормить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 27,
@@ -244,7 +271,8 @@ let initialState: IInitialState = {
       "pastSimple": "felt",
       "participle": "felt",
       "translate": "чувствовать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 28,
@@ -252,7 +280,8 @@ let initialState: IInitialState = {
       "pastSimple": "fought",
       "participle": "fought",
       "translate": "бороться",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 29,
@@ -260,7 +289,8 @@ let initialState: IInitialState = {
       "pastSimple": "found",
       "participle": "found",
       "translate": "находить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 30,
@@ -268,7 +298,8 @@ let initialState: IInitialState = {
       "pastSimple": "flew",
       "participle": "flown",
       "translate": "летать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 31,
@@ -276,7 +307,8 @@ let initialState: IInitialState = {
       "pastSimple": "forbade",
       "participle": "forbidden",
       "translate": "запрещать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 32,
@@ -284,7 +316,8 @@ let initialState: IInitialState = {
       "pastSimple": "forgot",
       "participle": "forgotten",
       "translate": "забывать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 33,
@@ -292,7 +325,8 @@ let initialState: IInitialState = {
       "pastSimple": "forgave",
       "participle": "forgiven",
       "translate": "простить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 34,
@@ -300,7 +334,8 @@ let initialState: IInitialState = {
       "pastSimple": "froze",
       "participle": "frozen",
       "translate": "замораживать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 35,
@@ -308,7 +343,8 @@ let initialState: IInitialState = {
       "pastSimple": "got",
       "participle": "got (gotten)",
       "translate": "получать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 36,
@@ -316,7 +352,8 @@ let initialState: IInitialState = {
       "pastSimple": "gave",
       "participle": "given",
       "translate": "давать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 37,
@@ -324,7 +361,8 @@ let initialState: IInitialState = {
       "pastSimple": "went",
       "participle": "gone",
       "translate": "идти",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 38,
@@ -332,7 +370,8 @@ let initialState: IInitialState = {
       "pastSimple": "grew",
       "participle": "grown",
       "translate": "расти",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 39,
@@ -340,7 +379,8 @@ let initialState: IInitialState = {
       "pastSimple": "had",
       "participle": "had",
       "translate": "иметь",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 40,
@@ -348,7 +388,8 @@ let initialState: IInitialState = {
       "pastSimple": "heard",
       "participle": "heard",
       "translate": "слышать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 41,
@@ -356,7 +397,8 @@ let initialState: IInitialState = {
       "pastSimple": "hid",
       "participle": "hidden",
       "translate": "прятать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 42,
@@ -364,7 +406,8 @@ let initialState: IInitialState = {
       "pastSimple": "hit",
       "participle": "hit",
       "translate": "попадать, ударять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 43,
@@ -372,7 +415,8 @@ let initialState: IInitialState = {
       "pastSimple": "held",
       "participle": "held",
       "translate": "держать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 44,
@@ -380,7 +424,8 @@ let initialState: IInitialState = {
       "pastSimple": "hurt",
       "participle": "hurt",
       "translate": "причинять боль",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 45,
@@ -388,7 +433,8 @@ let initialState: IInitialState = {
       "pastSimple": "kept",
       "participle": "kept",
       "translate": "держать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 46,
@@ -396,7 +442,8 @@ let initialState: IInitialState = {
       "pastSimple": "knew",
       "participle": "known",
       "translate": "знать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 47,
@@ -404,7 +451,8 @@ let initialState: IInitialState = {
       "pastSimple": "laid",
       "participle": "laid",
       "translate": "класть, стелить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 48,
@@ -412,7 +460,8 @@ let initialState: IInitialState = {
       "pastSimple": "led",
       "participle": "led",
       "translate": "вести, лидировать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 49,
@@ -420,7 +469,8 @@ let initialState: IInitialState = {
       "pastSimple": "learnt (learned)",
       "participle": "learnt (learned)",
       "translate": "учиться, узнавать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 50,
@@ -428,7 +478,8 @@ let initialState: IInitialState = {
       "pastSimple": "left",
       "participle": "left",
       "translate": "покидать, оставлять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 51,
@@ -436,7 +487,8 @@ let initialState: IInitialState = {
       "pastSimple": "lent",
       "participle": "lent",
       "translate": "давать взаймы",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 52,
@@ -444,7 +496,8 @@ let initialState: IInitialState = {
       "pastSimple": "let",
       "participle": "let",
       "translate": "позволять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 53,
@@ -452,7 +505,8 @@ let initialState: IInitialState = {
       "pastSimple": "lay",
       "participle": "lain",
       "translate": "лежать\/врать правильный",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 54,
@@ -460,7 +514,8 @@ let initialState: IInitialState = {
       "pastSimple": "lit",
       "participle": "lit",
       "translate": "зажигать, освещать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 55,
@@ -468,7 +523,8 @@ let initialState: IInitialState = {
       "pastSimple": "lost",
       "participle": "lost",
       "translate": "терять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 56,
@@ -476,7 +532,8 @@ let initialState: IInitialState = {
       "pastSimple": "made",
       "participle": "made",
       "translate": "делать, мастерить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 57,
@@ -484,7 +541,8 @@ let initialState: IInitialState = {
       "pastSimple": "meant",
       "participle": "meant",
       "translate": "значить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 58,
@@ -492,7 +550,8 @@ let initialState: IInitialState = {
       "pastSimple": "met",
       "participle": "met",
       "translate": "встречать, знакомиться",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 59,
@@ -500,7 +559,8 @@ let initialState: IInitialState = {
       "pastSimple": "paid",
       "participle": "paid",
       "translate": "платить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 60,
@@ -508,7 +568,8 @@ let initialState: IInitialState = {
       "pastSimple": "put",
       "participle": "put",
       "translate": "класть, ставить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 61,
@@ -516,7 +577,8 @@ let initialState: IInitialState = {
       "pastSimple": "read",
       "participle": "read",
       "translate": "читать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 62,
@@ -524,7 +586,8 @@ let initialState: IInitialState = {
       "pastSimple": "rode",
       "participle": "ridden",
       "translate": "ездить верхом",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 63,
@@ -532,7 +595,8 @@ let initialState: IInitialState = {
       "pastSimple": "rang",
       "participle": "rung",
       "translate": "звонить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 64,
@@ -540,7 +604,8 @@ let initialState: IInitialState = {
       "pastSimple": "rose",
       "participle": "risen",
       "translate": "восходить, подниматься",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 65,
@@ -548,7 +613,8 @@ let initialState: IInitialState = {
       "pastSimple": "ran",
       "participle": "run",
       "translate": "бежать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 66,
@@ -556,7 +622,8 @@ let initialState: IInitialState = {
       "pastSimple": "said",
       "participle": "said",
       "translate": "сказать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 67,
@@ -564,7 +631,8 @@ let initialState: IInitialState = {
       "pastSimple": "saw",
       "participle": "seen",
       "translate": "видеть",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 68,
@@ -572,7 +640,8 @@ let initialState: IInitialState = {
       "pastSimple": "sought",
       "participle": "sought",
       "translate": "искать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 69,
@@ -580,7 +649,8 @@ let initialState: IInitialState = {
       "pastSimple": "sold",
       "participle": "sold",
       "translate": "продавать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 70,
@@ -588,7 +658,8 @@ let initialState: IInitialState = {
       "pastSimple": "sent",
       "participle": "sent",
       "translate": "посылать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 71,
@@ -596,7 +667,8 @@ let initialState: IInitialState = {
       "pastSimple": "set",
       "participle": "set",
       "translate": "устанавливать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 72,
@@ -604,7 +676,8 @@ let initialState: IInitialState = {
       "pastSimple": "shook",
       "participle": "shaken",
       "translate": "трясти",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 73,
@@ -612,7 +685,8 @@ let initialState: IInitialState = {
       "pastSimple": "shone",
       "participle": "shone",
       "translate": "светить, сиять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 74,
@@ -620,7 +694,8 @@ let initialState: IInitialState = {
       "pastSimple": "shot",
       "participle": "shot",
       "translate": "стрелять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 75,
@@ -628,7 +703,8 @@ let initialState: IInitialState = {
       "pastSimple": "showed",
       "participle": "shown",
       "translate": "показывать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 76,
@@ -636,7 +712,8 @@ let initialState: IInitialState = {
       "pastSimple": "shut",
       "participle": "shut",
       "translate": "закрывать, затворять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 77,
@@ -644,7 +721,8 @@ let initialState: IInitialState = {
       "pastSimple": "sang",
       "participle": "sung",
       "translate": "петь",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 78,
@@ -652,7 +730,8 @@ let initialState: IInitialState = {
       "pastSimple": "sat",
       "participle": "sat",
       "translate": "сидеть",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 79,
@@ -660,7 +739,8 @@ let initialState: IInitialState = {
       "pastSimple": "slept",
       "participle": "slept",
       "translate": "спать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 80,
@@ -668,7 +748,8 @@ let initialState: IInitialState = {
       "pastSimple": "slid",
       "participle": "slid",
       "translate": "скользить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 81,
@@ -676,7 +757,8 @@ let initialState: IInitialState = {
       "pastSimple": "smelt",
       "participle": "smelt",
       "translate": "пахнуть, нюхать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 82,
@@ -684,7 +766,8 @@ let initialState: IInitialState = {
       "pastSimple": "spoke",
       "participle": "spoken",
       "translate": "говорить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 83,
@@ -692,7 +775,8 @@ let initialState: IInitialState = {
       "pastSimple": "spent",
       "participle": "spent",
       "translate": "тратить, проводить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 84,
@@ -700,7 +784,8 @@ let initialState: IInitialState = {
       "pastSimple": "split",
       "participle": "split",
       "translate": "разделять, раскалывать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 85,
@@ -708,7 +793,8 @@ let initialState: IInitialState = {
       "pastSimple": "spoilt (spoiled)",
       "participle": "spoilt (spoiled)",
       "translate": "портить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 86,
@@ -716,7 +802,8 @@ let initialState: IInitialState = {
       "pastSimple": "spread",
       "participle": "spread",
       "translate": "развернуть, распространять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 87,
@@ -724,7 +811,8 @@ let initialState: IInitialState = {
       "pastSimple": "stood",
       "participle": "stood",
       "translate": "стоять",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 88,
@@ -732,7 +820,8 @@ let initialState: IInitialState = {
       "pastSimple": "stole",
       "participle": "stolen",
       "translate": "воровать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 89,
@@ -740,7 +829,8 @@ let initialState: IInitialState = {
       "pastSimple": "swam",
       "participle": "swum",
       "translate": "плавать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 90,
@@ -748,7 +838,8 @@ let initialState: IInitialState = {
       "pastSimple": "took",
       "participle": "taken",
       "translate": "брать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 91,
@@ -756,7 +847,8 @@ let initialState: IInitialState = {
       "pastSimple": "taught",
       "participle": "taught",
       "translate": "обучать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 92,
@@ -764,7 +856,8 @@ let initialState: IInitialState = {
       "pastSimple": "tore",
       "participle": "torn",
       "translate": "рвать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 93,
@@ -772,7 +865,8 @@ let initialState: IInitialState = {
       "pastSimple": "told",
       "participle": "told",
       "translate": "рассказывать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 94,
@@ -780,7 +874,8 @@ let initialState: IInitialState = {
       "pastSimple": "thought",
       "participle": "thought",
       "translate": "думать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 95,
@@ -788,7 +883,8 @@ let initialState: IInitialState = {
       "pastSimple": "threw",
       "participle": "thrown",
       "translate": "бросать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 96,
@@ -796,7 +892,8 @@ let initialState: IInitialState = {
       "pastSimple": "understood",
       "participle": "understood",
       "translate": "понимать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 97,
@@ -804,7 +901,8 @@ let initialState: IInitialState = {
       "pastSimple": "woke",
       "participle": "woken",
       "translate": "будить",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 98,
@@ -812,7 +910,8 @@ let initialState: IInitialState = {
       "pastSimple": "wore",
       "participle": "worn",
       "translate": "носить (одежду)",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 99,
@@ -820,7 +919,8 @@ let initialState: IInitialState = {
       "pastSimple": "won",
       "participle": "won",
       "translate": "побеждать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     },
     {
       "id": 100,
@@ -828,7 +928,8 @@ let initialState: IInitialState = {
       "pastSimple": "wrote",
       "participle": "written",
       "translate": "писать",
-      "setReproduce": 0
+      "setReproduce": 0,
+      "lastAttemptDate": "no"
     }
   ]
 }
@@ -838,33 +939,41 @@ const irregularVerbs = createSlice({
   name: 'irregularVerbs',
   initialState,
   reducers: {
-    addNewVerb: (state, action: PayloadAction<IAddVerb>) => {
-      let prevId = state.verbs[state.verbs.length - 1].id
-      let newVerbs: ITransl = {
-        id: prevId + 1,
-        infinitive: action.payload.data.infinitive,
-        pastSimple: action.payload.data.pastSimple,
-        participle: action.payload.data.participle,
-        translate: action.payload.data.translate,
-        setReproduce: 0
-      }
-      console.log(action)
-      state.verbs.push(newVerbs)
-    },
     applyViewOption: (state, { payload }) => {
       state.settingList.viewOption = payload.setting
     },
     applyAmountOption: (state, { payload }) => {
-      console.log(payload)
       state.settingList.amountWorlds = payload
     },
     applyTranscriptOption: (state, { payload }) => {
       state.settingList.isTranscription = payload
     },
+    setReproduce: (state, { payload }) => {
+      state.verbs = state.verbs.map((value) => {
+        for (let id of payload.idCorrectAnswer) {
+          if (value.id === id) {
+            return { ...value, setReproduce: payload.level, lastAttemptDate: 'no' }
+          }
+        }
+        return value
+      })
+    },
+    //set last attempt date for timeout 1 day in education
+    setLastAttemptDate: (state, { payload }) => {
+      state.verbs = state.verbs.map((value) => {
+        for (let id of payload.idIncorrectAnswer) {
+          if (value.id === id) {
+            return { ...value, lastAttemptDate: payload.localDate }
+          }
+        }
+        return value
+      })
+    }
+
   }
 })
 
-export const { addNewVerb, applyViewOption, applyAmountOption, applyTranscriptOption } = irregularVerbs.actions
+export const { applyViewOption, applyAmountOption, applyTranscriptOption, setReproduce, setLastAttemptDate } = irregularVerbs.actions
 
 
 export default irregularVerbs.reducer

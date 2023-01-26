@@ -15,7 +15,7 @@ const MainMenu = () => {
         <StyledButton name='Список глаголов' />
       </NavLink>
 
-      <NavLink to='/IrregularVerbs'>
+      <NavLink to='/choseLevel'>
         <StyledButton name='Начать обучение' />
       </NavLink>
 

@@ -1,7 +1,7 @@
 import { APPLY_VIEW_OPTION_VERBS } from './../actionTypes/actionTypes';
 import { ADD_VERB, IAddVerb } from '../actionTypes/actionTypes';
 import { put, takeEvery } from "redux-saga/effects";
-import { addNewVerb, applyViewOption } from '../slice/irregularVerbsSlice';
+import { applyViewOption } from '../slice/irregularVerbsSlice';
 
 function* addVerb(payload: any) {
   yield put(applyViewOption(payload))

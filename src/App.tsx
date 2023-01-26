@@ -10,6 +10,9 @@ import HeaderMain from './components/main/Header';
 import PageNoFound from './components/PageNoFound/PageNoFound';
 import Login from './components/Login/Login';
 import ListVerbs from './components/IrregularVerbs/ListsVerbs/ListVerbs';
+import IrregularVerbsL1 from './components/IrregularVerbs/Level1/IrregularVerbsL1';
+import ChoseLevel from './components/IrregularVerbs/choseLevel';
+
 
 
 function App() {
@@ -23,10 +26,12 @@ function App() {
             </Routes>
             <main>
               <Routes>
-                <Route path='/IrregularVerbs' element={<IrregularVerbs />} />
+                <Route path='/IrregularVerbs' element={<IrregularVerbsL1 />} />
                 <Route path='/' element={<MainMenu />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/listVerbs' element={<ListVerbs />} />
+                <Route path='/choseLevel' element={<ChoseLevel />} />
+                <Route path='/choseLevelVerbs/level1' element={<IrregularVerbsL1 />} />
                 <Route path='*' element={<PageNoFound />} />
               </Routes>
             </main>
