@@ -17,13 +17,13 @@ const DroppableL1 = ({ columnId, column, allVerbs, index }: DropableL1Props) => 
 
   return (
     <div className='card-verb' >
-      <Droppable droppableId={columnId} key={columnId}>
+      <Droppable droppableId={columnId} key={columnId} direction='horizontal' >
         {(provided, snapshot) => {
           return (
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <div>
-                <Card sx={{ minWidth: 170, padding: 0, mr: 1, background: colorBackground }}>
-                  <CardContent sx={{ padding: 1 }}>
+                <Card sx={{ minWidth: 170, padding: 0, mr: 1, background: '#eaeaea' }}>
+                  <CardContent sx={{ padding: 1 }} >
                     <Typography>
                       V: {allVerbs?.items[index].infinitive}
                     </Typography>
@@ -44,6 +44,7 @@ const DroppableL1 = ({ columnId, column, allVerbs, index }: DropableL1Props) => 
                   background: snapshot.isDraggingOver
                     ? "lightblue"
                     : "",
+                  // visibility: 'hidden', height: 0
                 }}
               >
                 {column.items.map((item: any, index: number) => {

@@ -1,4 +1,5 @@
 .droppable-input{
+
   border: dashed thin;
   border-radius: 8px;
   width: 170px;
@@ -9,6 +10,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  /* min-height: 100%; */
+
 }
 .box-level{
   display: flex;
@@ -32,4 +35,15 @@
   align-items: center;
   margin-top: 10px;
   gap: 20px;
+}
+
+.all-variant{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+.area{
+  display: flex;
 }

@@ -10,10 +10,9 @@ interface IAreaAllVariant {
 }
 
 const AreaAllVariant = ({ columnId, column, index }: IAreaAllVariant) => {
-
   return (
-    <div className='all-variant' >
-      <Droppable droppableId={columnId} key={columnId}>
+    <div className='all-variant-l2' >
+      <Droppable droppableId={columnId}>
         {(provided, snapshot) => {
           return (
             <div
@@ -29,8 +28,8 @@ const AreaAllVariant = ({ columnId, column, index }: IAreaAllVariant) => {
               {column.items.map((item: any, index: number) => {
                 return (
                   <Draggable
-                    key={item.id}
-                    draggableId={item.id.toString()}
+                    key={item.type}
+                    draggableId={`${item.type}${item.verb}`}
                     index={index}
                   >
                     {(provided, snapshot) => {
@@ -42,10 +41,10 @@ const AreaAllVariant = ({ columnId, column, index }: IAreaAllVariant) => {
                           {...provided.dragHandleProps}
                           style={getStyle(provided.draggableProps.style, snapshot)}
                         >
-                          <Card sx={{ margin: 1, backgroundColor: '#32b4bd' }}>
+                          <Card sx={{ margin: 1, }}>
                             <CardContent>
                               <Typography>
-                                {item.translate}
+                                {item.verb}
                               </Typography>
                             </CardContent>
                           </Card>

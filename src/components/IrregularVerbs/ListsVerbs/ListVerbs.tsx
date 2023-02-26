@@ -18,6 +18,7 @@ import ModalSetting from './ModalSetting';
 import { APPLY_VIEW_OPTION_VERBS } from '../../../store/actionTypes/actionTypes';
 import { applyAmountOption, applyTranscriptOption } from '../../../store/slice/irregularVerbsSlice';
 import { Link } from 'react-router-dom';
+import StyledButton from '../../Common/StyledButton';
 
 const ListVerbs = () => {
   const verbs = useSelector((state: RootState) => state.persistedReducer.irregularVerbs.verbs)
@@ -27,6 +28,7 @@ const ListVerbs = () => {
   const [isOpen, setIsOpen] = useState(false)
   const handleClose = () => setIsOpen(false)
   const handleOpen = () => setIsOpen(true)
+  const [amountViewWords, setAmountViewWords] = useState(setting.amountWorlds)
 
   const handleViewOption = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: APPLY_VIEW_OPTION_VERBS, setting: event.target.value })
@@ -35,12 +37,17 @@ const ListVerbs = () => {
     dispatch(applyTranscriptOption(event.target.value))
   };
   const handleAmountOption = (e: Event, newValue: number | number[]) => {
+    setAmountViewWords(newValue as number)
     dispatch(applyAmountOption(newValue))
   };
 
-  const listVerbs = verbs.map((verb) => {
-    if (setting.viewOption === 'card') return <CardVerb verb={verb} key={verb.id} />
-    return <TableVerbs verb={verb} key={verb.id} />
+  const listVerbs = verbs.map((verb, index) => {
+    if (index + 1 <= amountViewWords && setting.viewOption === 'card') {
+      return <CardVerb verb={verb} key={verb.id} />
+    }
+    if (setting.viewOption === 'table') {
+      return <TableVerbs verb={verb} key={verb.id} />
+    }
   })
 
   return (
@@ -55,27 +62,48 @@ const ListVerbs = () => {
           <SettingsIcon sx={{ fontSize: 40 }} />
         </IconButton>
       </AppBar>
-      <div className='lists-verbs'>
-        {(setting.viewOption === 'card')
-          ?
-          listVerbs
-          :
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 350, maxWidth: 750, }} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>V - Infinitive</StyledTableCell>
-                  <StyledTableCell>V2 - Past Simple </StyledTableCell>
-                  <StyledTableCell>V3 - Participle</StyledTableCell>
-                  <StyledTableCell>Перевод</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {listVerbs}
-              </TableBody>
-            </Table>
-          </TableContainer>}
-      </div>
+
+      {(setting.viewOption === 'card')
+        ?
+        <>
+          <div className='lists-verbs'>
+            {listVerbs}
+          </div>
+          {(verbs.length - amountViewWords <= 0) ?
+            null
+            :
+            <StyledButton
+              name={`Отобразить еще ${(verbs.length - amountViewWords < setting.amountWorlds) ?
+                verbs.length - amountViewWords
+                :
+                setting.amountWorlds
+                } из ${verbs.length - amountViewWords} слов`}
+              onClick={() => setAmountViewWords((prev) => {
+                if (verbs.length - amountViewWords < setting.amountWorlds) {
+                  return prev + verbs.length - amountViewWords
+                }
+                return prev + setting.amountWorlds
+              })}
+            />
+          }
+        </>
+        :
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 350, maxWidth: 750, }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>V - Infinitive</StyledTableCell>
+                <StyledTableCell>V2 - Past Simple </StyledTableCell>
+                <StyledTableCell>V3 - Participle</StyledTableCell>
+                <StyledTableCell>Перевод</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {listVerbs}
+            </TableBody>
+          </Table>
+        </TableContainer>}
+
       <ModalSetting
         isOpen={isOpen}
         viewOption={setting.viewOption}
@@ -88,7 +116,7 @@ const ListVerbs = () => {
         handleAmountOption={handleAmountOption}
       />
 
-    </div>
+    </div >
   );
 };
 

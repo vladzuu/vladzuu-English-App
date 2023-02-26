@@ -7,91 +7,7 @@ import { ITransl, setLastAttemptDate, setReproduce } from '../../../store/slice/
 import './IrregularVerbsL1.css';
 import AreaAllVariant from './AreaAllVariant';
 import StyledButton from '../../Common/StyledButton';
-import { receiveLocalDate } from '../Helper';
-
-
-const onDragEnd = (result: DropResult, columns: any, setColumns: any) => {
-  console.log(result)
-  if (!result.destination) return;
-  const { source, destination } = result;
-
-  if (source.droppableId !== destination.droppableId) {
-    const sourceColumn = columns[source.droppableId];
-    const destColumn = columns[destination.droppableId];
-    const sourceItems = [...sourceColumn.items];
-    const destItems = [...destColumn.items];
-    const [removed] = sourceItems.splice(source.index, 1);
-
-    if (destination.droppableId === 'all') {
-      destItems.splice(destination.index, 0, removed);
-      setColumns({
-        ...columns,
-        [source.droppableId]: {
-          ...sourceColumn,
-          items: sourceItems
-        },
-        [destination.droppableId]: {
-          ...destColumn,
-          items: destItems
-        }
-      })
-    } else {
-      if (!destColumn.items.length) {
-        destItems.splice(destination.index, 0, removed)
-        setColumns({
-          ...columns,
-          [source.droppableId]: {
-            ...sourceColumn,
-            items: sourceItems
-          },
-          [destination.droppableId]: {
-            ...destColumn,
-            items: destItems
-          }
-        })
-      } else if (source.droppableId !== 'all') {
-        const [removed1] = destItems.splice(0, 1)
-        destItems.push(removed)
-        const destColumn1 = columns['all'];
-        const destItems1 = [...destColumn1.items];
-        destItems1.push(removed1)
-
-        setColumns({
-          ...columns,
-          [source.droppableId]: {
-            ...sourceColumn,
-            items: sourceItems
-          },
-          [destination.droppableId]: {
-            ...destColumn,
-            items: destItems
-          },
-          ['all']: {
-            ...destColumn1,
-            items: destItems1
-          }
-        })
-      } else {
-        const [removed1] = destItems.splice(0, 1)
-        destItems.push(removed)
-        sourceItems.push(removed1)
-
-        setColumns({
-          ...columns,
-          [source.droppableId]: {
-            ...sourceColumn,
-            items: sourceItems
-          },
-          [destination.droppableId]: {
-            ...destColumn,
-            items: destItems
-          },
-        })
-      }
-    }
-  }
-  console.log(columns)
-};
+import { onDragEnd, receiveLocalDate } from '../Helper';
 
 interface IColumns {
   all: ITransl
@@ -116,7 +32,6 @@ export interface IListWords {
   items: IVerbs[]
 }
 
-
 const IrregularVerbsL1 = () => {
   const listVerbs = useSelector((state: RootState) => state.persistedReducer.irregularVerbs.verbs)
   const [isComplete, setIsComplete] = useState(false)
@@ -124,7 +39,9 @@ const IrregularVerbsL1 = () => {
   const [listWords, setListWords] = useState<IListWords>({ items: [] })
   const dispatch = useAppDispatch()
 
-
+  useEffect(() => {
+    createLevel()
+  }, [])
 
   const createLevel = () => {
     const localDate = receiveLocalDate()
@@ -159,10 +76,6 @@ const IrregularVerbsL1 = () => {
     setIsComplete(false)
   }
 
-  useEffect(() => {
-    createLevel()
-  }, [])
-
   const submitLevel = () => {
 
     const localDate = receiveLocalDate()
@@ -172,10 +85,10 @@ const IrregularVerbsL1 = () => {
     for (let i = 0; i < listWords.items.length; i++) {
       if (listWords.items[i].infinitive === columns[i + 1].items[0].infinitive) {
         idCorrectAnswer.push(listWords.items[i].id)
-        copyColumns[i + 1].items[0].correctColor = 'green'
+        copyColumns[i + 1].items[0].correctColor = '#0db10d'
       } else {
         idIncorrectAnswer.push(listWords.items[i].id)
-        copyColumns[i + 1].items[0].correctColor = 'red'
+        copyColumns[i + 1].items[0].correctColor = '#ff4141'
       }
     }
     dispatch(setLastAttemptDate({ idIncorrectAnswer: idIncorrectAnswer, localDate: localDate }))

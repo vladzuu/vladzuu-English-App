@@ -1,0 +1,53 @@
+@import './../../Common/variables.scss';
+
+.box-level-2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;   
+
+  .droppable-input{
+    border: dashed thin;
+    border-radius: 8px;
+    width: 170px;
+    min-height: 95px;
+    display: flex;
+  }
+  .area-variant{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .box-verbs{
+    display: flex;
+    flex-direction: column;
+  }
+  .cards-verbs{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+  }
+  .card-verb{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin-top: 10px;
+    gap: 20px;
+    @media (max-width:$breakpoint-xs) {
+      &{
+        flex-direction: column;
+      }
+    }
+  }
+  .all-variant-l2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
+  }
+}
+

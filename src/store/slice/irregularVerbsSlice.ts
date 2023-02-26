@@ -963,6 +963,7 @@ const irregularVerbs = createSlice({
       state.verbs = state.verbs.map((value) => {
         for (let id of payload.idIncorrectAnswer) {
           if (value.id === id) {
+            console.log(id)
             return { ...value, lastAttemptDate: payload.localDate }
           }
         }
