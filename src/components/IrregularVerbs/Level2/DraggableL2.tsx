@@ -1,19 +1,18 @@
 import React from 'react';
 import { Draggable } from "@hello-pangea/dnd";
 import { Card, CardContent, Typography } from '@mui/material';
-import { getStyle } from '../Helper';
+import { getStyle } from '../Common/Helper';
 
 interface DraggableL1Props {
   item: any
   index: number
-  colorBackground?: string
 }
 
-const DraggableL1 = ({ item, index, colorBackground }: DraggableL1Props) => {
+const DraggableL1 = ({ item, index }: DraggableL1Props) => {
   return (
     <Draggable
       key={item.id}
-      draggableId={index.toString()}
+      draggableId={item.type}
       index={index}
     >
       {(provided, snapshot) => {
@@ -25,7 +24,7 @@ const DraggableL1 = ({ item, index, colorBackground }: DraggableL1Props) => {
             {...provided.dragHandleProps}
             style={getStyle(provided.draggableProps.style, snapshot)}
           >
-            <Card sx={{ margin: 1, background: item.correctColor }}>
+            <Card sx={{ margin: 1, background: item.correctColor, height: 77 }}>
               <CardContent>
                 <Typography>
                   {item.verb}

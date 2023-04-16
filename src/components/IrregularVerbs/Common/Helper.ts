@@ -19,7 +19,6 @@ export const getStyle = (style: any, snapshot: any) => {
 
 export const onDragEnd = (result: any, columns: any, setColumns: any) => {
   if (!result.destination) return;
-  // console.log(result)
   const { source, destination } = result;
 
   if (source.droppableId !== destination.droppableId) {
@@ -98,3 +97,5 @@ export const onDragEnd = (result: any, columns: any, setColumns: any) => {
     }
   }
 };
+
+

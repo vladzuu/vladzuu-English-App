@@ -8,7 +8,9 @@ import StyledButton from '../../Common/StyledButton';
 import DroppableL1 from './DroppableL2';
 import AreaAllVariant from './AreaAllVariant';
 import { Card, CardContent, Typography } from '@mui/material';
-import { onDragEnd, receiveLocalDate } from '../Helper';
+import { onDragEnd, receiveLocalDate } from '../Common/Helper';
+import NavArrowBack from '../../Common/NavArrowBack';
+import ButtonCheck from '../Common/ButtonCheck';
 
 interface IColumns {
   all: ITransl
@@ -29,54 +31,59 @@ function IrregularVerbsL2() {
   }, [])
 
   const createLevel = () => {
-    //Create obj for view
     const localDate = receiveLocalDate()
     let arrVerbs: Array<ITransl> = []
-    for (let i = 0; i <= listVerbs.length; i++) {
+    for (let i = 0; i < listVerbs.length; i++) {
       if (arrVerbs.length === 1) break
       if (listVerbs[i].setReproduce === 1 && listVerbs[i].lastAttemptDate !== localDate) {
         arrVerbs.push(listVerbs[i])
       }
     }
-    let objForView: any = {
-      all: {
-        items: [
-          {
-            type: 'infinitive',
-            verb: arrVerbs[0].infinitive,
-            correctColor: ''
-          },
-          {
-            type: 'pastSimple',
-            verb: arrVerbs[0].pastSimple,
-            correctColor: ''
-          },
-          {
-            type: 'participle',
-            verb: arrVerbs[0].participle,
-            correctColor: ''
-          }
-        ]
-      },
-      1: {
-        type: 'Infinitive (V)',
-        items: []
-      },
-      2: {
-        type: 'Past Simple (V2)',
-        items: []
-      },
-      3: {
-        type: 'Participle (V3)',
-        items: []
-      },
+    if (arrVerbs.length) {
+      let objForView: any = {
+        all: {
+          items: [
+            {
+              type: 'infinitive',
+              verb: arrVerbs[0].infinitive,
+              correctColor: ''
+            },
+            {
+              type: 'pastSimple',
+              verb: arrVerbs[0].pastSimple,
+              correctColor: ''
+            },
+            {
+              type: 'participle',
+              verb: arrVerbs[0].participle,
+              correctColor: ''
+            }
+          ]
+        },
+        1: {
+          type: 'Infinitive (V)',
+          items: []
+        },
+        2: {
+          type: 'Past Simple (V2)',
+          items: []
+        },
+        3: {
+          type: 'Participle (V3)',
+          items: []
+        },
+      }
+
+      objForView.all.items.sort(() => {
+        return Math.random() - 0.5
+      })
+      setColumns(objForView)
+      setWord(arrVerbs[0])
+      setIsComplete(false)
     }
-    objForView.all.items.sort(() => {
-      return Math.random() - 0.5
-    })
-    setColumns(objForView)
-    setWord(arrVerbs[0])
-    setIsComplete(false)
+    if (!arrVerbs.length) {
+      setColumns('')
+    }
   }
 
   const submitLevel = () => {
@@ -103,41 +110,57 @@ function IrregularVerbsL2() {
     }
     setIsComplete(true)
   }
+  const createInputArea = () => {
+    let arr = Object.entries(columns).map(([columnId, column], index) => {
+      if (columnId !== 'all') return (
+        <DroppableL1 columnId={columnId} column={column} key={index} index={index} />
+      );
+    })
+    return arr
+  }
+  const createAllVariant = () => {
+    const arr = Object.entries(columns).map(([columnId, column], index) => {
+      if (columnId === 'all') return (
+        <AreaAllVariant columnId={columnId} column={column} key={index} index={index} />
+      )
+    })
+    return arr
+  }
+
+
+  if (typeof (columns) === 'string') {
+    return (
+      <div> ynet</div>
+    )
+  }
 
   return (
     <DragDropContext
       onDragEnd={result => onDragEnd(result, columns, setColumns)}
-      onDragStart={result => console.log(result)}
     >
-      <div className='box-level-2'>
-        <div className='box-verbs'>
-          <div className='cards-verbs'>
-            <Typography variant='h2'>
-              {`${word?.translate.charAt(0).toUpperCase()}${word?.translate.slice(1)}`}
-            </Typography>
-            <div className='card-verb'>
-              {Object.entries(columns).map(([columnId, column], index) => {
-                if (columnId !== 'all') return (
-                  <DroppableL1 columnId={columnId} column={column} key={index} index={index} />
-                );
-              })}
+      <div style={{ display: 'flex', flexDirection: 'column', minWidth: '100vw', flexGrow: 1 }}>
+        <NavArrowBack linkTo='/choselevel' />
+        <div className='box-level-verbs'>
+          <div className='box-verbs'>
+            <div className='cards-verbs'>
+              <Typography variant='h2' sx={{ marginBottom: 3 }}>
+                {`${word?.translate.charAt(0).toUpperCase()}${word?.translate.slice(1)}`}
+              </Typography>
+              <div className='card-verb'>
+                {createInputArea()}
+              </div>
             </div>
           </div>
+          <div className='all-variant' >
+            {createAllVariant()}
+          </div>
+          <ButtonCheck
+            isComplete={isComplete}
+            length={columns.all?.items.length}
+            createLevel={createLevel}
+            submitLevel={submitLevel}
+          />
         </div>
-        {Object.entries(columns).map(([columnId, column], index) => {
-          if (columnId === 'all') return (
-            <AreaAllVariant columnId={columnId} column={column} key={index} index={index} />
-          )
-        })}
-
-        {(!isComplete) ?
-          (columns.all?.items.length) ?
-            <StyledButton name='Проверить' key={'but'} onClick={submitLevel} isDisabled={true} />
-            :
-            <StyledButton name='Проверить' key={'but'} onClick={submitLevel} isDisabled={false} />
-          :
-          <StyledButton name='Следующий уровень' onClick={createLevel} />
-        }
       </div>
     </DragDropContext>
   );

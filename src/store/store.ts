@@ -1,9 +1,10 @@
 import irregularVerbs from './slice/irregularVerbsSlice';
+import login from './slice/login';
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from "react-redux";
 import SagaMiddleware from 'redux-saga';
 import { rootSaga } from './sagas/rootSaga';
-import storage from 'redux-persist/lib/storage'
+import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
   persistReducer,
@@ -15,11 +16,11 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-
 const saga = SagaMiddleware()
 
 const rootReducer = combineReducers({
   irregularVerbs,
+  login
 });
 
 const persistConfig = {
@@ -28,7 +29,6 @@ const persistConfig = {
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 
 const store = configureStore({
   reducer: {

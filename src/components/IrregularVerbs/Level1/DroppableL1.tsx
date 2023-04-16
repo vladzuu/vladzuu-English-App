@@ -44,12 +44,11 @@ const DroppableL1 = ({ columnId, column, allVerbs, index }: DropableL1Props) => 
                   background: snapshot.isDraggingOver
                     ? "lightblue"
                     : "",
-                  // visibility: 'hidden', height: 0
                 }}
               >
                 {column.items.map((item: any, index: number) => {
                   return (
-                    <DraggableL1 item={item} index={index} key={index} colorBackground={colorBackground} />
+                    <DraggableL1 item={item} index={index} key={index} />
                   );
                 })}
                 {provided.placeholder}
