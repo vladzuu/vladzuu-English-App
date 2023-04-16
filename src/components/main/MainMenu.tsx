@@ -10,10 +10,6 @@ import './mainMenu.css'
 const MainMenu = () => {
 
   return (
-
-
-
-
     <div className='nav-menu'>
       <NavLink to='/listVerbs'>
         <StyledButton name='Список глаголов' />

@@ -1,0 +1,53 @@
+.box-level-verbs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width:100%;
+  flex-grow:1;   
+
+  .all-variant{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .droppable-input{
+    border: dashed thin;
+    border-radius: 8px;
+    width: 170px;
+    min-height: 95px;
+    display: flex;
+
+    .area{
+      width: 100%;
+    }
+  }
+  .area-variant{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 80px;
+    min-width: 300px;
+  }
+  
+  .box-verbs{
+    display: flex;
+    flex-direction: column;
+  }
+  .cards-verbs{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .card-verb{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    gap: 20px;
+  }
+  
+  
+
+}

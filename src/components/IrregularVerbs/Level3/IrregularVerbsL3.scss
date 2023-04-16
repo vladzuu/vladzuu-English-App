@@ -1,0 +1,28 @@
+.box-level-verbs{
+  .box-verbs{
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items: center;
+    align-items: flex-end;
+  }
+  .input-block{  
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    &__verb{
+      margin: 0px 0px 10px 0px;
+      font-size: 32px;
+    }
+  }
+  .icon-success{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  
+
+}
+
+
+

@@ -13,6 +13,7 @@ import ChoiceLevel from './components/IrregularVerbs/СhoiceLevel';
 import IrregularVerbsL1 from './components/IrregularVerbs/Level1/IrregularVerbsL1';
 import IrregularVerbsL2 from './components/IrregularVerbs/Level2/IrregularVerbsL2';
 import IrregularVerbsL3 from './components/IrregularVerbs/Level3/IrregularVerbsL3';
+import DownloadDataButton from './components/setting/downloadResult';
 
 
 
@@ -36,6 +37,8 @@ function App() {
                 <Route path='/choseLevelVerbs/level2' element={<IrregularVerbsL2 />} />
                 <Route path='/choseLevelVerbs/level3' element={<IrregularVerbsL3 />} />
                 <Route path='*' element={<PageNoFound />} />
+                <Route path='/download' element={<DownloadDataButton />} />
+
               </Routes>
             </main>
           </div>

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { DragDropContext, Draggable, Droppable, DropResult } from "@hello-pangea/dnd";
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../../../store/store';
-import DroppableL1 from './DroppableL1';
 import { ITransl, setLastAttemptDate, setReproduce } from '../../../store/slice/irregularVerbsSlice';
-import './IrregularVerbsL1.css';
+import { RootState, useAppDispatch } from '../../../store/store';
+import { DragDropContext } from "@hello-pangea/dnd";
+import { useSelector } from 'react-redux';
+import { onDragEnd, receiveLocalDate } from '../Common/Helper';
+import NavArrowBack from '../../Common/NavArrowBack';
+import DroppableL1 from './DroppableL1';
 import AreaAllVariant from './AreaAllVariant';
-import StyledButton from '../../Common/StyledButton';
-import { onDragEnd, receiveLocalDate } from '../Helper';
+import ButtonCheck from '../Common/ButtonCheck';
+import './IrregularVerbsL1.scss';
+
 
 interface IColumns {
   all: ITransl
@@ -43,7 +45,7 @@ const IrregularVerbsL1 = () => {
     createLevel()
   }, [])
 
-  const createLevel = () => {
+  const createLevel = async () => {
     const localDate = receiveLocalDate()
     let arrVerbs: Array<IVerbs> = []
     for (let i = 0; i <= listVerbs.length; i++) {
@@ -54,6 +56,11 @@ const IrregularVerbsL1 = () => {
       }
 
     }
+    let card = await JSON.parse(JSON.stringify(arrVerbs))
+    card.sort(() => {
+      return Math.random() - 0.5
+    })
+
     let objForView: any = {}
     for (let i = 0; i <= arrVerbs.length; i++) {
       switch (i) {
@@ -72,16 +79,15 @@ const IrregularVerbsL1 = () => {
       }
     }
     setColumns(objForView)
-    setListWords(objForView.all)
+    setListWords({ items: [...card] })
     setIsComplete(false)
   }
 
   const submitLevel = () => {
-
     const localDate = receiveLocalDate()
     let idCorrectAnswer: Array<number> = []
     let idIncorrectAnswer: Array<number> = []
-    let copyColumns = { ...columns }
+    let copyColumns = JSON.parse(JSON.stringify(columns))
     for (let i = 0; i < listWords.items.length; i++) {
       if (listWords.items[i].infinitive === columns[i + 1].items[0].infinitive) {
         idCorrectAnswer.push(listWords.items[i].id)
@@ -93,38 +99,54 @@ const IrregularVerbsL1 = () => {
     }
     dispatch(setLastAttemptDate({ idIncorrectAnswer: idIncorrectAnswer, localDate: localDate }))
     dispatch(setReproduce({ idCorrectAnswer: idCorrectAnswer, level: 1 }))
+    setColumns(copyColumns)
     setIsComplete(true)
-
   }
+  const createInputArea = () => {
+    let arr = Object.entries(columns).map(([columnId, column], index) => {
+      if (columnId !== 'all') return (
+        <DroppableL1 columnId={columnId} column={column} key={index} index={index} allVerbs={listWords} />
+      )
+    })
+    return arr
+  }
+  const createAllVraiant = () => {
+    let arr = Object.entries(columns).map(([columnId, column], index) => {
+      if (columnId === 'all') return (
+
+        <AreaAllVariant columnId={columnId} column={column} key={index} index={index} />
+      )
+    })
+    return arr
+  }
+
+  // if()
+
+
 
   return (
     <DragDropContext
       onDragEnd={result => onDragEnd(result, columns, setColumns)}
     >
-      <div className='box-level'>
-        <div className='box-verbs'>
-          <div className='cards-verbs'>
-            {Object.entries(columns).map(([columnId, column], index) => {
-              if (columnId !== 'all') return (
-                <DroppableL1 columnId={columnId} column={column} key={index} index={index} allVerbs={listWords} />
-              );
-            })}
-          </div>
-        </div>
-        {Object.entries(columns).map(([columnId, column], index) => {
-          if (columnId === 'all') return (
-            <AreaAllVariant columnId={columnId} column={column} key={index} index={index} />
-          )
-        })}
 
-        {(!isComplete) ?
-          (columns.all?.items.length) ?
-            <StyledButton name='Проверить' key={'but'} onClick={submitLevel} isDisabled={true} />
-            :
-            <StyledButton name='Проверить' key={'but'} onClick={submitLevel} isDisabled={false} />
-          :
-          <StyledButton name='Следующий уровень' onClick={createLevel} />
-        }
+      <div style={{ display: 'flex', flexDirection: 'column', minWidth: '100vw' }}>
+        <NavArrowBack linkTo='/choselevel' />
+        <div className='box-level-verbs'>
+          <div className='box-verbs'>
+            <div className='cards-verbs'>
+              {createInputArea()}
+            </div>
+          </div>
+          <div className='all-variant' >
+            {createAllVraiant()}
+          </div>
+          <ButtonCheck
+            isComplete={isComplete}
+            length={columns.all?.items.length}
+            createLevel={createLevel}
+            submitLevel={submitLevel}
+          />
+        </div>
       </div>
     </DragDropContext>
   );

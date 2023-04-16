@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+import React, { useEffect, useState } from 'react';
+import { RootState } from '../../store/store';
+import { Link, NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import './header.scss'
+import ButtonLeftBar from '../Common/ButtonLeftBar';
+import { Button, IconButton, Modal } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import BookIcon from '@mui/icons-material/Book';
-import { IconButton } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import LockIcon from '@mui/icons-material/Lock';
 import CloseIcon from '@mui/icons-material/Close';
 import ListAltIcon from '@mui/icons-material/ListAlt';
-import FlagCircleIcon from '@mui/icons-material/FlagCircle';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import InsightsIcon from '@mui/icons-material/Insights';
-import LockIcon from '@mui/icons-material/Lock';
+import FlagCircleIcon from '@mui/icons-material/FlagCircle';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const HeaderMain = () => {
   const [isOpenMenu, setIsOpenMenu] = useState<'none' | 'flex'>('none')
+  const photo = useSelector((state: RootState) => state.persistedReducer.login.photo)
+  console.log('Header menu')
+
   return (
     <header className="App-header" >
       <div className='logo-site'>
@@ -34,59 +40,70 @@ const HeaderMain = () => {
       </div>
       <div className='ava-user'>
         <NavLink to='/login'>
-          <IconButton>
-            <AccountCircleIcon color="action" sx={{ fontSize: 50 }} />
-          </IconButton>
+          {(photo.length)
+            ?
+            <img src={photo}></img>
+            :
+            <IconButton>
+              <AccountCircleIcon color="action" sx={{ fontSize: 50 }} />
+            </IconButton>
+          }
         </NavLink>
       </div>
-      <div style={{
-        position: 'absolute',
-        width: 280,
-        height: '100vh',
-        top: 0,
-        left: 0,
-        background: '#184781',
-        display: isOpenMenu,
-        zIndex: 100,
-        flexDirection: 'column'
-      }}>
-        <IconButton
-          onClick={() => {
-            setIsOpenMenu('none')
-          }}
-          sx={{ alignSelf: 'end' }}
-        >
-          <CloseIcon color="action" sx={{ fontSize: 30 }} />
-        </IconButton>
-        <Button
-          sx={{ fontWeight: 'bold', margin: '8px', paddingLeft: 3, color: 'white', borderBlockColor: 'white', border: 'white', justifyContent: 'start' }}
-          startIcon={<MenuBookIcon sx={{ color: 'white' }} />} >
-          Изучение глаголов
-        </Button>
-        <Button
-          sx={{ fontWeight: 'bold', margin: '8px', paddingLeft: 6, color: 'white', borderBlockColor: 'white', border: 'white', justifyContent: 'start' }}
-          startIcon={<ListAltIcon sx={{ color: 'white', fontSize: 30 }} />} >
-          Список глагов
-        </Button>
-        <Button
-          sx={{ fontWeight: 'bold', margin: '8px', paddingLeft: 6, color: 'white', borderBlockColor: 'white', border: 'white', justifyContent: 'start' }}
-          startIcon={<FlagCircleIcon sx={{ color: 'white' }} />} >
-          Выбрать уровень
-        </Button>
-        <Button
-          sx={{ fontWeight: 'bold', margin: '8px', paddingLeft: 6, color: 'white', borderBlockColor: 'white', border: 'white', justifyContent: 'start' }}
-          startIcon={<InsightsIcon sx={{ color: 'white' }} />} >
-          Статистика
-        </Button>
-        <Button
-          disabled={true}
-          sx={{ fontWeight: 'bold', margin: '8px', paddingLeft: 3, color: 'white', borderBlockColor: 'white', border: 'white', justifyContent: 'start' }}
-          startIcon={<LockIcon sx={{ color: 'white' }} />} >
-          Запоминнание Слов
-        </Button>
+
+      <div
+        className='overlay'
+        onClick={(e) => setIsOpenMenu('none')}
+        style={{
+
+          display: isOpenMenu
+        }}>
+        <div className='left-navbar'>
+          <IconButton
+            onClick={() => {
+              setIsOpenMenu('none')
+            }}
+            sx={{ alignSelf: 'end' }}
+          >
+            <CloseIcon color="action" sx={{ fontSize: 30 }} />
+          </IconButton>
+          <ButtonLeftBar
+            linkTo={'/'}
+            title={'Изучение глаголов'}
+            startIcon={<MenuBookIcon sx={{ color: 'white' }} />}
+          />
+          <ButtonLeftBar
+            linkTo={'/listVerbs'}
+            title={'Список глаголов'}
+            startIcon={<ListAltIcon sx={{ color: 'white' }} />}
+            paddingLeft={5}
+          />
+          <ButtonLeftBar
+            linkTo={'/choselevel'}
+            title={'Выбрать уровень'}
+            startIcon={<FlagCircleIcon sx={{ color: 'white' }} />}
+            paddingLeft={5}
+          />
+          <ButtonLeftBar
+            linkTo={'/statistic'}
+            title={'Статистика'}
+            startIcon={<InsightsIcon sx={{ color: 'white' }} />}
+            paddingLeft={5}
+          />
+          <ButtonLeftBar
+            linkTo={'/'}
+            title={'Запоминнание Слов'}
+            startIcon={<LockIcon sx={{ color: 'white' }} />}
+            isDisabled={true}
+          />
+        </div>
       </div>
+
+
     </header >
   );
 };
 
 export default HeaderMain;
+
+

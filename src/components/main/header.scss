@@ -1,0 +1,22 @@
+.App-header{
+  .overlay{
+    width: 100vw;
+    z-index: 1199;
+    background: rgba(0,0,0, 0.45);
+    position: fixed;
+    height: 200vh;
+    .left-navbar{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100vh;
+      background: #184781;
+      display: flex;
+      z-index: 1200;
+      flex-direction: column;
+    }
+
+  }
+  
+}

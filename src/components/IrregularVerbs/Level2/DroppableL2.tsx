@@ -13,16 +13,14 @@ interface DropableL1Props {
 }
 
 const DroppableL1 = ({ columnId, column, allVerbs, index }: DropableL1Props) => {
-  // const colorBackground = allVerbs.items[index].correctColor
-
   return (
     <Droppable droppableId={columnId} key={columnId}>
       {(provided, snapshot) => {
         return (
           <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-            <div >
+            <span className='title-verb'>
               {column.type}
-            </div>
+            </span>
             <div
               className='droppable-input'
               {...provided.droppableProps}

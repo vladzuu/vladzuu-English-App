@@ -4,12 +4,13 @@ import { useSelector } from 'react-redux';
 import { ITransl, setLastAttemptDate, setReproduce } from '../../../store/slice/irregularVerbsSlice';
 import { RootState, useAppDispatch } from '../../../store/store';
 import Button from '@mui/material/Button';
-import './IrregularVerbsL3.css';
+import './IrregularVerbsL3.scss';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import ClearIcon from '@mui/icons-material/Clear';
-import { receiveLocalDate } from '../Helper';
+import { receiveLocalDate } from '../Common/Helper';
 import CircularProgress from '@mui/material/CircularProgress';
 import StyledButton from '../../Common/StyledButton';
+import NavArrowBack from '../../Common/NavArrowBack';
 
 
 const IrregularVerbsL3 = () => {
@@ -44,7 +45,6 @@ const IrregularVerbsL3 = () => {
     setVerb(arrVerbs[0])
     shuffle(arrVerbs[0])
     setIsComplete(false)
-    console.log(verb)
   }
 
   useEffect(() => {
@@ -64,8 +64,6 @@ const IrregularVerbsL3 = () => {
     } else {
       dispatch(setLastAttemptDate({ idIncorrectAnswer: [verb?.id], localDate: localDate }))
     }
-    console.log(dataWorld)
-    // createLevel()
   }
 
   const shuffle = (obj: ITransl) => {
@@ -93,69 +91,68 @@ const IrregularVerbsL3 = () => {
 
 
   return (
-    <div className='box-app'>
-      {/* {typeof (verb) === undefined ? null : <CircularProgress />} */}
-
-      {(isCorrect != null)
-        ? <div className='icon-success'>
-          (isCorrect)
-          ?
-          <span><DoneOutlineIcon color='success' sx={{ fontSize: 80 }}></DoneOutlineIcon></span>
+    <div style={{ display: 'flex', flexDirection: 'column', minWidth: '100vw' }}>
+      <NavArrowBack linkTo='/choselevel' />
+      <div className='box-level-verbs'>
+        {(isCorrect != null)
+          ? <div className='icon-success'>
+            (isCorrect)
+            ?
+            <span><DoneOutlineIcon color='success' sx={{ fontSize: 80 }}></DoneOutlineIcon></span>
+            :
+            <span><ClearIcon color='error' sx={{ fontSize: 80 }}></ClearIcon></span>
+          </div>
           :
-          <span><ClearIcon color='error' sx={{ fontSize: 80 }}></ClearIcon></span>
-        </div>
-        :
-        null
-      }
+          null
+        }
+        <span style={{ fontSize: 48, marginBottom: 50 }}>{`${verb?.translate.charAt(0).toUpperCase()}${verb?.translate.slice(1)}`}</span>
+        <div className='box-verbs'>
+          <div className='input-block'>
+            <span className='input-block__verb'>{reverseVerbs.infinitive}</span>
+            <TextField
+              autoComplete='off'
+              type={'text'}
+              id="outlined-basic"
+              label="Infinitive"
+              variant="outlined"
+              value={infinitiveInput}
+              onChange={(e) => setInfinitiveInput(e.target.value)} />
+          </div>
+          <div className='input-block'>
+            <span className='input-block__verb'>{reverseVerbs.pastSimple}</span>
+            <TextField
+              autoComplete='off'
+              type={'text'}
+              id="outlined-basic"
+              label="PastSimple"
+              variant="outlined"
+              value={pastSimpleInput}
+              onChange={(e) => setPastSimpleInput(e.target.value)} />
+          </div>
+          <div className='input-block'>
+            <span className='input-block__verb'>{reverseVerbs.participle}</span>
+            <TextField
+              autoComplete='off'
+              type={'text'}
+              id="outlined-basic"
+              label="Participle"
+              variant="outlined"
+              value={participleInput}
+              onChange={(e) => setParticipleInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') submitLevel()
+              }}
+            />
+          </div>
+        </div >
 
-      <span style={{ fontSize: 48, marginBottom: 50 }}>{`${verb?.translate.charAt(0).toUpperCase()}${verb?.translate.slice(1)}`}</span>
-      <div className='box-verbs'>
-        <div className='verbs'>
-          <span className='word'>{reverseVerbs.infinitive}</span>
-          <TextField
-            autoComplete='off'
-            type={'text'}
-            id="outlined-basic"
-            label="Infinitive"
-            variant="outlined"
-            value={infinitiveInput}
-            onChange={(e) => setInfinitiveInput(e.target.value)} />
-        </div>
-        <div className='verbs'>
-          <span className='word'>{reverseVerbs.pastSimple}</span>
-          <TextField
-            autoComplete='off'
-            type={'text'}
-            id="outlined-basic"
-            label="PastSimple"
-            variant="outlined"
-            value={pastSimpleInput}
-            onChange={(e) => setPastSimpleInput(e.target.value)} />
-        </div>
-        <div className='verbs'>
-          <span className='word'>{reverseVerbs.participle}</span>
-          <TextField
-            autoComplete='off'
-            type={'text'}
-            id="outlined-basic"
-            label="Participle"
-            variant="outlined"
-            value={participleInput}
-            onChange={(e) => setParticipleInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') submitLevel()
-            }}
-          />
-        </div>
-      </div >
-
-      {(!isComplete) ?
-        <StyledButton name='Проверить' key={'but'} onClick={submitLevel} />
-        :
-        <StyledButton name='Следующий уровень' onClick={createLevel} />
-      }
+        {(!isComplete) ?
+          <StyledButton name='Проверить' key={'but'} onClick={submitLevel} />
+          :
+          <StyledButton name='Следующий уровень' onClick={createLevel} />
+        }
+      </div>
     </div>
-
   );
 };
 

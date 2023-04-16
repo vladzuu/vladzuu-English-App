@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector, } from 'react-redux';
 import { RootState } from '../../../store/store';
 import AppBar from '@mui/material/AppBar';
-import SettingsIcon from '@mui/icons-material/Settings';
+
 import CardVerb from './CardVerb';
 import './listVerbs.css'
 import { IconButton } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import SettingsIcon from '@mui/icons-material/Settings';
 import TableVerbs, { StyledTableCell } from './TableVerbs';
 import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
@@ -19,6 +19,7 @@ import { APPLY_VIEW_OPTION_VERBS } from '../../../store/actionTypes/actionTypes'
 import { applyAmountOption, applyTranscriptOption } from '../../../store/slice/irregularVerbsSlice';
 import { Link } from 'react-router-dom';
 import StyledButton from '../../Common/StyledButton';
+import NavArrowBack from '../../Common/NavArrowBack';
 
 const ListVerbs = () => {
   const verbs = useSelector((state: RootState) => state.persistedReducer.irregularVerbs.verbs)
@@ -52,17 +53,11 @@ const ListVerbs = () => {
 
   return (
     <div className='box-main-app'>
-      <AppBar sx={{ justifyContent: 'space-between', flexDirection: 'row', maxHeight: 70, top: 0, position: 'sticky' }}>
-        <Link to='/'>
-          <IconButton>
-            <ArrowBackIcon sx={{ fontSize: 40 }} />
-          </IconButton>
-        </Link>
+      <NavArrowBack linkTo='/'>
         <IconButton onClick={handleOpen}>
           <SettingsIcon sx={{ fontSize: 40 }} />
         </IconButton>
-      </AppBar>
-
+      </NavArrowBack>
       {(setting.viewOption === 'card')
         ?
         <>
